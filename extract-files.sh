@@ -17,7 +17,7 @@ function blob_fixup() {
             sed -i 's|/system/etc/firmware|/vendor/firmware\x0\x0\x0\x0|g' "${2}"
             ;;
         vendor/lib/libMiWatermark.so)
-            "${PATCHELF}" --add-needed "libpiex-v29.so" "${2}"
+            grep -q "libpiex-v29.so" "${2}" || "${PATCHELF}" --add-needed "libpiex-v29.so" "${2}"
             ;;
     esac
 }
