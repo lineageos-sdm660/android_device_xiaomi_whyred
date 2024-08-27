@@ -20,6 +20,9 @@ function blob_fixup() {
         vendor/lib/libMiWatermark.so)
             grep -q "libpiex_shim.so" "${2}" || "${PATCHELF}" --add-needed "libpiex_shim.so" "${2}"
             ;;
+        *)
+            return 1
+            ;;
     esac
 }
 
