@@ -11,6 +11,8 @@ function blob_fixup() {
 
         vendor/lib/hw/camera.sdm660.so)
             grep -q "libcamera_sdm660_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcamera_sdm660_shim.so" "${2}"
+            perl -pi -e 's/\xc1\x68\xd0\xe9\x0d\x20\xcd\xe9\x03\x20/\xc1\x68\xd0\xe9\x12\x20\xcd\xe9\x03\x20/g' "${2}"
+            perl -pi -e 's/\xdb\xf8\x00\x10\x08\x9a\x49\x6b\xc6\xe9\x04\x21/\xdb\xf8\x00\x10\x08\x9a\x89\x6c\xc6\xe9\x04\x21/g' "${2}"
             ;;
         vendor/lib64/libgf_ca.so)
             sed -i 's|/system/etc/firmware|/vendor/firmware\x0\x0\x0\x0|g' "${2}"
