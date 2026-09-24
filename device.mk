@@ -21,6 +21,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libpiex \
     libpiex_shim \
     libpng.vendor:32
 
