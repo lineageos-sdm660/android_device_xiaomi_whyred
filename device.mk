@@ -27,6 +27,11 @@ PRODUCT_PACKAGES += \
 # Consumerir
 BOARD_HAVE_IR := true
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    vendor.goodix.hardware.fingerprint@1.0.vendor \
+    com.fingerprints.extension@1.0.vendor
+
 # FM
 BOARD_HAVE_QCOM_FM := true
 
